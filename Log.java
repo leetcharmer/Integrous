@@ -13,16 +13,18 @@ import java.util.TimeZone;
 public class Log {
 	private Calendar submitDate;
 	private String summary, details;
+	private User user;
 	
 	public Log() {
-		this( null, null );
+		this( null, null, new User( "email@example.com" ) );
 	} // Default Constructor
 
-	public Log(String summary, String details) {
+	public Log(String summary, String details, User user) {
 		// Assign values to Log object
 		this.submitDate = Calendar.getInstance( TimeZone.getDefault() );
 		setSummary( summary );
 		setDetails( details );
+		setUser( user );
 	} // Non-Default Constructor
 
 	/**
@@ -58,5 +60,19 @@ public class Log {
 	 */
 	public String getDetails() {
 		return details;
+	}
+
+	/**
+	 * @param user the user to set
+	 */
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	/**
+	 * @return the user
+	 */
+	public User getUser() {
+		return user;
 	}
 } // end of class Log
