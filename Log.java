@@ -1,4 +1,6 @@
+import java.util.Calendar;
 import java.util.Date;
+import java.util.TimeZone;
 
 /**
  * Log.java: Integrous Log Entity
@@ -9,29 +11,25 @@ import java.util.Date;
  *
  */
 public class Log {
-	private Date submitDate = new Date();
+	private Calendar submitDate;
 	private String summary, details;
+	
+	public Log() {
+		this( null, null );
+	} // Default Constructor
 
-	public Log(Date submitDate, String summary, String details) {
+	public Log(String summary, String details) {
 		// Assign values to Log object
-		this.submitDate = submitDate;
+		this.submitDate = Calendar.getInstance( TimeZone.getDefault() );
 		this.summary = summary;
 		this.details = details;
 	} // Non-Default Constructor
-	
-
-	/**
-	 * @param submitDate the submitDate to set
-	 */
-	public void setSubmitDate(Date submitDate) {
-		this.submitDate = submitDate;
-	}
 
 	/**
 	 * @return the submitDate
 	 */
 	public Date getSubmitDate() {
-		return submitDate;
+		return submitDate.getTime();
 	}
 
 	/**
