@@ -21,8 +21,8 @@ public class Log {
 	public Log(String summary, String details) {
 		// Assign values to Log object
 		this.submitDate = Calendar.getInstance( TimeZone.getDefault() );
-		this.summary = summary;
-		this.details = details;
+		setSummary( summary );
+		setDetails( details );
 	} // Non-Default Constructor
 
 	/**
