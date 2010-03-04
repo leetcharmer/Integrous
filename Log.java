@@ -1,3 +1,4 @@
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
@@ -74,5 +75,11 @@ public class Log {
 	 */
 	public User getUser() {
 		return user;
+	}
+	
+	public String toString() {
+		return "+" + getUser().getEmail() + "+ " 
+		+ new SimpleDateFormat("MM/dd/yyyy hh:mm a").format( getSubmitDate() )
+		+ " : "	+ getSummary() + "\n" + getDetails();
 	}
 } // end of class Log
