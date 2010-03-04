@@ -24,27 +24,26 @@ public class Main {
 			
 			try {
 				exit = Integer.parseInt( input( "1. Add Log\n2. Read Logs\n[-1 to Exit]\nChoose: " ) );
-			} catch( NumberFormatException ex ) {
-				exit = 0;
-			}
+			} catch( NumberFormatException ex ) { exit = 0;	}
 			
 			while( exit != -1 ) {
+				switch( exit ) {
+					case 1 :
+						Log item = new Log();
+						item.setUser( user );
+						item.setSummary( input( "Enter Summary: " ) );
+						item.setDetails( input( "Enter Details: " ) );
+						
+						logItems.add( item );
+						break;
+					case 2: 
+						for( int index = 0; index < logItems.size(); index++ )
+							System.out.println( logItems.get( index ) );
+						break;
+					default : System.out.println( "Invalid Option" );
+				} // end of switch
+				
 				try {
-					switch( exit ) {
-						case 1 :
-							Log item = new Log();
-							item.setUser( user );
-							item.setSummary( input( "Enter Summary: " ) );
-							item.setDetails( input( "Enter Details: " ) );
-							
-							logItems.add( item );
-							break;
-						case 2: 
-							for( int index = 0; index < logItems.size(); index++ )
-								System.out.println( logItems.get( index ) + "\n" );
-							break;
-						default : System.out.println( "Invalid Option" );
-					} // end of switch
 					exit = Integer.parseInt(input( "1. Add Log\n2. Read Logs\n[-1 to Exit]\nChoose: " ) );
 				} catch( NumberFormatException e ) { exit = 0; } // end of try / catch
 			} // end of while
